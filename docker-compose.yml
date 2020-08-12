@@ -1,0 +1,21 @@
+version: '3.3'
+
+services:
+   yang-explorer:
+     image: jeroenboot/yang-explorer
+     ports:
+       - "8088:8088"
+     volumes:
+       - yangexplorer_data:/yang-explorer/server/data
+     restart: always
+
+
+volumes:
+    yangexplorer_data: {}
+
+
+networks:                                
+  default:                               
+    driver: bridge                       
+    driver_opts:                         
+      com.docker.network.driver.mtu: 1400
